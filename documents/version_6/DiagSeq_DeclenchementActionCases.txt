@@ -1,0 +1,44 @@
+
+@startuml
+
+title Declenchement des actions des cases
+
+participant "mg:MoteurGraphique" as moteur
+participant "jeu:ZeldiabloJeu" as jeu
+participant "heros:Heros" as perso
+participant "case:Case" as case
+
+
+    == Exemple d'initialisation ==
+    
+    jeu -> perso : add(new Heros())
+    activate perso
+    jeu <-- perso
+    deactivate perso
+    
+    
+    ...
+
+    == Traitement à chaque frame ==
+    
+    moteur -> jeu : evoluer(commande)
+    activate jeu #DarkSalmon
+    
+    ...
+    
+    jeu -> perso : declencherActionCase()
+    activate perso #Salmon
+    
+        perso -> case : declencherAction(this)
+        activate case #Salmon
+        
+        perso <-- case
+        deactivate case
+    jeu <-- perso
+    deactivate perso
+        
+        
+        
+    moteur <-- jeu
+    deactivate jeu
+    

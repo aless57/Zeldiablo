@@ -1,0 +1,50 @@
+*** Iteration 5 ***
+
+-fonctionnalité 1: Apparition de monstres sur une case aléatoire 
+- responsable: Nicolas Frache
+Critères de validation : Apparition aléatoire des monstres sur une case vide
+	• Les monstres doivent apparaître sur un case vide
+Détails de conception :
+	• Création d'une méthode chargerMonstre() dans PersonnageNonJoueur
+	• La méthode testCollision(direction) de Personnage contient le code qui permet de savoir si une case est occupée
+		--> Donc pour ne pas avoir à réecrire cette partie on encapsule ce bout de code dans la nouvelle méthode estOccupeeCase(x,y,labyrinthe) et on réecrit partiellement testCollision(direction);  
+
+
+
+- fonctionnalité 2: Creation d'une classe tour permettant la creation d'un jeu avec plusieurs labyrinthes (format de tour a plusieurs étages) et gestion plus générale du système de multi-étage.
+- responsable: Silvio Brancati, Nicolas Frache
+Classes à modifier :
+	• Tour
+	• LabyrintheJeu
+	• ZeldiabloJeu
+
+- fonctionnalité 3: Creation de 5 niveau de labyrinthe à la main 
+- responsable: Nicolas Frache & Silvio Brancati & Alessi Demange
+Critères de validation :
+	• Un chemin permet d'atteindre l'arrivée 
+
+- fonctionnalité 4: Retranscription des labyrinthes dans la classe Tour 
+- responsable: Silvio Brancati
+Classes à modifier:
+	• Tour
+Critères de validation :
+	• Au lancement du jeu le niveau 1 est lancé 
+	• Tous les niveaux correspondent bien à ceux dessiné auparavant 
+
+- fonctionnalité 5: Creation Case Bonus
+- responsable: Alessi Demange
+Classes à créer:
+	• CaseBonus
+Critères de validation :
+	• Les cases bonus apparaissent bien lorsqu'elles doivent être présente et au bon endroit
+
+- fonctionnalité 6: Creation Armes
+- responsable: Silvio Brancati
+Classes à créer:
+	• Armes
+	• Poing
+	• Epee
+Classe à modifier:
+	• Heros
+Critères de validation :
+	• En fonction de l'arme en main du héros ses points d'attaque sont influencés 

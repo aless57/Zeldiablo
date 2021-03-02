@@ -1,0 +1,79 @@
+
+@startuml
+
+title Gestion des collisions des personnages non-joueurs
+
+participant "mg:MoteurGraphique" as moteur
+participant "jeu:ZeldiabloJeu" as jeu
+participant "listePerso:List<PersonnageNonJoueur>" as perso
+participant "pnjTraite:PersonnageNonJoueur" as pnj
+
+
+    == Exemple d'initialisation ==
+    
+    jeu -> perso : add(new Gobelin(//params//))
+    activate perso
+    jeu <-- perso
+    deactivate perso
+    
+    jeu -> perso : add(new Fantome(//params//))
+    activate perso
+    jeu <-- perso
+    deactivate perso
+    
+    ...
+    
+    == Traitement à chaque frame ==
+    
+    moteur -> jeu : evoluer(commande)
+    activate jeu #DarkSalmon
+    
+         loop listePerso.size()
+          jeu -> perso : get(i)
+            activate perso
+           
+          jeu <-- perso : listePerso.get(i)
+          deactivate perso
+          
+              jeu -> pnj : evolutionAutomatique() 
+              activate pnj #FFBBBB   
+            
+                note over pnj #White
+                    directionAleatoire prend une valeur
+                 end note
+                 
+                group #LightBlue Nouveauté  
+                 
+                note right of pnj
+                    La méthode //testCollision(direction)// est définie dans la classe //Personnage//.
+                    Les collisions sont testées en prenant en compte tous les monstres et le héro.
+                    Pour ce qui est des murs, cela depend de l'attribut //solide// du PNJ en question
+                end note
+                 
+                loop //Tant que estEnCollision vrai//
+                    note over pnj #White
+                        directionAleatoire prend une autre valeur
+                    end note
+                 
+                    pnj -> pnj : **testCollision(directionAleatoire)**
+                    activate pnj #Yellow
+                    
+                    pnj <-- pnj : //estEnCollision//
+                    deactivate pnj
+                end
+                
+                end
+                
+                pnj -> pnj : bougerVers(directionAleatoire)
+                activate pnj #DarkSalmon
+                
+                deactivate pnj
+                
+                jeu <-- pnj
+                deactivate pnj
+       
+        end
+        
+    moteur <-- jeu
+    deactivate jeu
+    

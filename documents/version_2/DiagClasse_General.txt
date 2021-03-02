@@ -1,0 +1,96 @@
+@startuml
+title Diagramme de classe général
+
+
+Class Heros {
++ PersoJeu()
++ void evoluerCommande(Commande)
++ boolean etreFini()
++ int getXPerso()
++ int getYPerso()
++ void setXPerso(int)
++ void setXPerso(int)
+}
+Class ZeldiabloJeu {
+- boolean perdu
++ ZeldiabloJeu()
++ void evoluer(Commande)
++ boolean etreFini()
++ PersoJeu getPersonnage()
++ LabyrintheJeu getArene()
+}
+abstract Case {
+- int solidite
+- Color couleur
+- int degats
+- String sprite
++ Case(int,Color,int)
++ {abstract} void declencherAction()
++ int getSolidite()
++ Color getColor()
++ int getDegats()
++ String getSprite()
+}
+
+Class CaseMur {
++ CaseMur()
++ void declencherAction()
+}
+
+Class CasePiege {
++ CasePiege()
++ void declencherAction()
+}
+
+Class CaseSol {
++ CaseSol()
++ void declencherAction()
+}
+
+Class LabyrintheJeu {
++ {static} int LONGUEUR
++ {static} int LARGEUR
++ int getLongueur()
++ int getLargeur()
++ Case[][] getCases()
++ LabyrintheJeu()
+}
+
+Abstract Class Personnage {
+- int xPerso 
+- int yPerso
+- int pdv
+- boolean invincible
+- boolean collision
+- int attaque
+- String sprite
++ Personnage(int, boolean, boolean, int, String)
++ int getPdv()
++ boolean isInvincible()
++ boolean isCollision()
++ int getAttaque()
++ String getSprite()
+}
+
+Abstract Class PersonnageNonJoueur {
+
++ evolutionAutomatique()
+}
+
+Class Gobelin {
++ Gobelin()
+}
+
+''' relations '''
+LabyrintheJeu -> "1..*" Case : ­ cases
+ZeldiabloJeu -> "1" LabyrintheJeu : arene
+ZeldiabloJeu -> "1" Heros : personnage
+Heros -> Personnage
+CaseMur --> Case
+CasePiege --> Case
+CaseSol --> Case
+Gobelin -> PersonnageNonJoueur
+ZeldiabloJeu --> "0..*" PersonnageNonJoueur : ListePerso
+
+PersonnageNonJoueur -> Personnage
+@enduml

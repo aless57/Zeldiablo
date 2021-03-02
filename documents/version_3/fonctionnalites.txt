@@ -1,0 +1,50 @@
+*** Iteration 3 ***
+
+
+- fonctionnalite 1 : Deplacement aléatoire des personnages non-joueurs par défaut
+- responsable : Nicolas Frache
+Critères de validation :
+	• A chaque évolution, tous les monstres tentent de se déplacer.
+	• L'interface graphique se met à jour en fonction des déplacements des Monstres.
+Classe(s) à modifier :
+	• PersonnageNonJoueur (la méthode évolution automatique qui provoque un déplacement aléatoire si elle n'est pas surchargé par la classe spécifique du PNJ en question)
+	• ZeldiabloDessin (pour l'affichage sous formes de ronds colorés)
+Tests (Silvio Brancati):
+	• La méthode evolutionAutomatique fait bien bouger le PNJ
+
+
+- fonctionnalite 2: Gestions collision héros avec monstre, monstre avec monstre, mur avec monstre solide
+- responsable : Nicolas Frache
+Critères de validation :
+	• Les monstres ne doivent pas passer au travers d'autre monstre, du heros, ou d'un mur  	
+	• Les personnages non-solides doivent passer au travers des objets de décors solide 
+	• La collision fonctionne dans les 4 directions.
+	• Si la case est vide, le personnage avance.
+	• Le monstre se déplace à chaque fois après le joueur.
+Classe(s) à modifier :
+	• Méthode "testCollision(direction)" de la classe Personnage pour prendre en compte les PNJs
+	• Méthode "evolutionAutomatique()" de la classe PersonnageNonJoueur pour prendre en compte les collisions par défaut
+
+Tests (Silvio Brancati) :
+	• La methode testCollision detecte correctement les collisions
+	
+
+- fonctionnalite 3: Creation fantômes
+- responsable : Silvio Brancati
+Critères de validation :
+	• Le fantôme doit être visible au moment du jeu 
+	• Le fantôme doit se déplacer automatiquement et aléatoirement sans sortir de l'arène
+	• Le fantôme doit traverser les murs mais pas les Personnages 
+Classe(s) à modifier :
+	• Méthode "bougerVers(direction)" de la classe Personnage
+Tests (Silvio Brancati) :
+	• Le fantôme ne sort pas de l'arène 
+	• Le fantôme peut traverser les murs à l'intérieur de l'arène
+
+- fonctionnalite 4: Creation Troll
+- responsable: Alessi Demange
+Critères de validation :
+	• Le Troll doit apparaitre au lancement du jeu
+	• Le Troll ne doit pas traverser les murs ni les personnages (héros et autres monstres)
+Tests : 
+	• Pas de tests nécessaires pour l'instant

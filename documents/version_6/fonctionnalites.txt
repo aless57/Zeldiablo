@@ -1,0 +1,39 @@
+*** Iteration 6 ***
+
+-fonctionnalité 1: Déclenchement action de la case à chaque déplacement d'un personnage
+- responsable: Nicolas Frache
+Critères de validation :
+	• A la fin de chaque tour de jeu case sur laquelle est le héros déclenche son action
+	• Les personnages non-joueurs ne doivent pas déclencher d'actions
+Détails de conception :
+	• Ajout d'une méthode "déclenchementActionCase(Heros heros)" de Heros
+		--> Appel de la méthode "declencherAction(Heros heros)" 
+
+-fonctionnalité 2: Ajout des sprites a chaque case et personnages (Sprite change en fonction direction des personnages)
+- responsable: Silvio Brancati
+Critères de validation :
+	• Tous les personnages / murs / sols ont les bons sprites
+Classes modifiées :
+	• Case (toutes les classes héritant de case)
+	• Heros
+	• Personnage
+	• PersonnageNonJoueur
+	• ZeldiabloDessin
+
+-fonctionnalité 3: Menu avec barre de vie
+- responsable: Nicolas Frache, Alessi Demange
+Critères de validation :
+	• Agrandissement de la fenêtre pour rajouter une barre de vie
+		--> Réalisation du sprite par Alessi et implémentation + remplissage de la barre dynamiquement par Nicolas 
+
+-fonctionnalité 4: Ajout victoire et défaite du jeu
+- responsable: Nicolas Frache, Silvio Brancati
+Critères de validation :
+	• Affichage du bon message en fonction de la finalité du jeu
+
+-fonctionnalité 5: Ajout des sprites changeant pour les pièges et armes
+- responsable: Silvio Brancati
+Critères de validation :
+	• Lorsque le personnage va sur une case piège son Sprite change
+	• Lorsque le personnage va sur une case potion son Sprite change
+	• Lorsque le personnage va sur une case epee son Sprite change

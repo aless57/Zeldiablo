@@ -1,0 +1,69 @@
+*** Iteration 4 ***
+
+
+- fonctionnalité 1: Ajouter un affichage graphique indiquant la direction d'un personnage. 
+- responsable: Nicolas Frache
+Critères de validation :
+	• Le personnage doit se diriger dans la direction ou il se déplace
+	• A l'arrêt on peut choisir l'orientation du personnage à l'aide des flèches
+	• Un indicateur visuel doit indiquer la direction 
+ 
+
+
+- fonctionnalité 2: Lorsque le monstre est à côté d'un joueur, il l'attaque et ne bouge pas
+- responsable: Alessi Demange & Nicolas Frache
+Critères de validation :
+	• Si le monstre est à côté du héros il ne bouge pas et le héros perd un point de vie
+	• Si le monstre n'est pas à côté du héros il bouge aléatoirement
+Détails des modifications :
+	• PersonnageNonJoueur : 
+		• encapsulage de la méthodes deplacementAleatoire()
+		• écriture méthode estACoteDuJoueur() qui teste si le monstre est près d'un joueur
+		• écriture méthode orienterVersJoueur() qui oriente le monstre vers le joueur
+		• écriture méthode attaquer() qui retire de la vie au joueur s'il est devant le monstre
+		• --> Appel de toute ces méthode dans evolutionAutomatique() 
+
+Test (Silvio Brancati & Alessi Demange)	:
+	• Perte de point de vie du héros s'il est a cote du héros 
+	• Pas de perte de point de vie du héros s'il n'est pas a cote
+
+
+- fonctionnalité 3: Gestion attaque directionnelle du héros 
+- responsable: Silvio Brancati
+Critères de validation :
+	•  L'attaque a lieu dans la dernière direction suivie par le héros
+	•  L'attaque ne peut toucher qu'un monstre et seulement si ce monstre se trouve juste devant le personnage
+	•  Les monstres situés à côté du personnage dans une autre direction de subissent pas de dégâts 
+	•  Si aucun monstre n'est présent devant le héros aucun monstre ne subit de dégâts
+
+Test (Silvio Brancati) :
+	• Le monstre perd bien un point de vie s'il est attaqué et devant le héros
+	• Aucun monstre n'est présent devant le héros et ne subi de dégâts 
+	• Seul le monstre en face est touché par l'attaque 
+
+
+- fonctionnalité 4: Mort des monstres 
+- responsable: Silvio Brancati
+Critères de validation :
+	• Les monstres ne peuvent pas avoir de points de vie négatifs 
+	• Le héros attaque avant le monstre, si le monstre meurt, le monstre n'a pas le temps de répliquer et disparaît 
+Test (Silvio Brancati) :
+	• Le monstre doit disparaitre lorsqu'il est mort 
+	• La methode etreMort renvoie bien true lorsque les pv = 0
+
+
+- fonctionnalité 5: Recherche de sprites adapté
+- responsable: Alessi Demange
+Critères de validation :
+	• Ajout de sprite pour : le héros, le gobelin, le troll, le fantome, l'environnement
+	• Le sprite change par rapport à l'orientation du personnage ou du monstre
+
+
+- fonctionnalité 6: Stockage de l'information de l'attaque et affichage graphique de celle-ci sous forme d'un triangle rouge (pour le moment)  
+- responsable: Nicolas Frache
+Critères de validation :
+	• 
+	• 
+Test :
+	• 
+	• 

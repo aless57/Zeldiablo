@@ -1,0 +1,3 @@
+
+
+Réalisation de la structure du projet suivant le modèle du TP16 par l'ensemble du groupe avec notamment l'intégration du moteur fourni à notre ensemble de classes existant

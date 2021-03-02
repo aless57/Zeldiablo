@@ -1,0 +1,41 @@
+* fonctionnalités itération 1
+
+-> Alessi Demange : Création d'un labyrinthe par défaut
+Au lancement du jeu, un labyrinthe par défaut est créé et le personnage est placé
+au centre de celui-ci.
+Critères de validation :
+	• Le labyrinthe par défaut est constitué d'une arène de taille 10*10 ;
+	• Le personnage est placé au centre de l'arène ;
+	• Les monstres (s'il y en a) sont placés sur des cases vides (à adapter).
+Test :
+	• Vérifier la taille de l'arène
+	• Test sur les coordonnées du personnage quand il apparaît
+	• Le perso et les monstres ne sont pas sur des cases occupés
+
+- fonctionnalite 2: Ajouter un affichage graphique à l'aide du moteur graphique fournie
+- responsable : Nicolas Frache
+Critères de validation :
+	• Le labyrinthe doit s'afficher sous formes sipmlifié avec des rectangles de différentes couleurs  
+	• Le personnage doit apparaître comme un rond
+	--> Le déplacements du personnages et les collisions seront crées en parrallèle par les autres membre du groupe
+Test :
+	• Vérifier que l'affichage graphique est mis à jour em même temps que les données de jeu
+	• Vérifier visuellement (pas de test automatisé possible) que l'affichage graphique correspond aux données
+
+
+
+- fonctionnalite 3 : Ajout déplacements du personnage
+- responsable : Silvio Brancati
+Critères de validation : 
+	• Le personnage ne peut pas sortir de l'arene 
+Test : 
+	• Verifier la valeur des coordonnées du personnage en fonction des commandes envoyees  
+	• Le personnage ne sort pas de l'arene
+
+
+- fonctionnalité 4 : Ajout Detection collision
+- responsable : Nicolas Frache
+Critères de validation :
+	• Un personnage (joueur ou non-joueur) ne doit pas pouvoir se déplacer dans une case innacessible
+Test :
+	• Placer le joueur sur l'arène, le faire bouger sur un mur et vérifier si ses coordonnées ont changées

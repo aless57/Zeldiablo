@@ -1,0 +1,14 @@
+Pour tester l'écran de victoire sans avoir à finir le jeu :
+
+Modifier la méthode initTour() de la classe Tour en commentant les 4 premiers niveaux ainsi : 
+
+public void initTour() {
+		//niv1();
+		//niv2();
+		//niv3();
+		//niv4();
+		niv5();
+	}
+
+--> Le personnage apparaît alors directement au dernier niveau à proximité de l'escalier à atteindre
+

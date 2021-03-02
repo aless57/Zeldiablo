@@ -1,0 +1,52 @@
+
+@startuml
+
+title Apparition d'un monstre sur une case aléatoire
+
+participant "Tour:tour" as tour
+participant "listeMonstreNiveaux:List<List<PersonnageNonJoueur>>" as liste
+participant "monstre:PersonnageNonJoueur" as monstre
+
+note over liste
+    Une liste qui répértorie pour chaque étage
+    une liste de monstre
+end note
+
+create liste
+tour -> liste : new()
+
+create monstre
+tour -> monstre : new(jeu, 0, 0)
+
+tour -> monstre : chargerMonstre(1)
+activate monstre #Salmon
+    group #LightBlue Ebauche de fonctionnement de chargerPerso()
+    note right of tour
+        Place le monstre à une case aléatoire de
+        l'étage spécifié (ici 1)
+    end note
+    
+    
+    note over monstre #White
+        x, y aléatoire
+    end note
+    
+     loop //Tant que estLibreCase(x,y, etage) vrai//
+                    note over monstre #White
+                        x et y prennent d'autres valeurs
+                    end note
+                 
+                    monstre -> monstre : estLibreCase(x,y, etage)
+                    activate monstre #Yellow
+                    
+                    monstre <-- monstre : //booléen//
+                    deactivate monstre
+     end
+    
+    end group
+    
+tour <-- monstre
+deactivate monstre
+
+tour -> liste : add(monstre)
+tour <-- liste

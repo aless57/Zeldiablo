@@ -1,0 +1,17 @@
+@startuml
+Class LabyrintheJeu{
+- {static} int LONGEUR
+- {static} int LARGEUR
+}
+Class Case{
+- {static} Case mur
+- {static} Case sol
+- {static} Case piege
+- int solidite
+- Color couleur
+- int degats
+- String sprite
+Case(int,Color,int)
+}
+Case <|-- LabyrintheJeu : Case[][]
+@enduml

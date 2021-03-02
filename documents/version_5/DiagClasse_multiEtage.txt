@@ -1,0 +1,51 @@
+@startuml
+
+title Fonctionnement du labyrinthe multi-étage
+
+
+class Tour {
+  - etageActuel: int
+  - listeMonstreNiveaux: ArrayList<ArrayList<PersonnageNonJoueur>>
+  - jeu: ZeldiabloJeu
+  
+  + Tour()
+  + initTour()
+  + monterEtage()
+  + descendreEtage()
+  
+}
+
+
+Class LabyrintheJeu {
++ {static} int LONGUEUR
++ {static} int LARGEUR
++ int getLongueur()
++ int getLargeur()
++ Case[][] getCases()
++ LabyrintheJeu()
+}
+
+Abstract Class PersonnageNonJoueur {
+  - nomPNJ: String
+
+  + evolutionAutomatique()
+  + estACoteDuJoueur():boolean
+  + orienterVersJoueurs()
+  + attaquer():void
+  + deplacementAleatoire()
+  + chargerMonstre(int)
+}
+
+Tour -> "*" PersonnageNonJoueur: - listeMonstreNiveaux
+note bottom on link : Une liste qui répértorie pour chaque étage une liste de monstre\n de type ArrayList<ArrayList<PersonnageNonJoueur>> 
+
+Tour --> "1..*" LabyrintheJeu : - listeLabyrintheJeu 
+
+
+
+
+
+
+
+
+@enduml

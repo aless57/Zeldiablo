@@ -1,0 +1,68 @@
+*** Iteration 2 ***
+
+
+- fonctionnalite 1: Gestion d'une liste de personnage non-joueurs
+- responsable : Nicolas Frache
+Critères de validation :
+	• Possibilité d'ajouter un nombre indéfinie de monstre lors de l'initialisation du jeu 
+	• Possibilité d'ajouter un nombre indéfinie de monstre au cours de la partie
+	• Permettre à chaque frame de faire un traitement spécifique à chaque personnages
+		--> Permettra plus tard de de gerer le déplacement automatique des PNJs (tout en testant les collisions)
+		--> Permettra plus tard de gerer les attaques etc.
+
+Classe(s) à modifier :
+	• PersonnageNonJoueur (la créer)
+	• ZeldiabloJeu (liste de PNJ)
+
+
+- fonctionnalite 2: Gestion de la direction du héros 
+- responsable : Silvio Brancati
+Critères de validation :
+	• Le personnage peut se diriger vers les 4 directions possibles
+	• Le personnage ne se déplace pas lors du changement de direction
+Classe(s) à modifier :
+	• Heros
+	• Controleur
+Tests :
+	• La direction du héros a bien lieu a l'appui d'une des 4 flèches directionnelle
+
+
+
+- fonctionnalite 3: Gestion la perte de point de vie sur le héros à cause d'un piège
+- responsable : Alessi Demange
+Critères de validation :
+	• Lorsque le personnage marche dans un piege il pert un point de vie
+	• Le personnage garde ses 10 points de vie s'il ne touche pas un piège
+Classe(s) à modifier :
+	• TestHeros
+	• Heros
+	• Personnages
+Tests :
+	• Le personnage perd 1 point de vie en passant sur un piege
+	• Le personnage ne perd pas de point en marchant sur le sol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

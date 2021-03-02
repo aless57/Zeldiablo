@@ -1,0 +1,38 @@
+
+@startuml
+
+title Fonctionnement de la detection de collision avec le personnage joué
+
+participant "mg:MoteurGraphique" as moteur
+participant "jeu:ZeldiabloJeu" as jeu
+participant "heros:Heros" as hero
+participant "Personnage" as perso
+
+    moteur -> jeu : evoluer(commande)
+
+        jeu -> hero : evoluer(commande)
+
+            
+            hero -> perso : testCollision(direction)
+
+                hero <-- perso : true
+        
+            
+            group Uniquement si false
+                hero -> perso : Evoluer(direction)
+              
+                    hero <-- perso
+               
+            end
+        jeu <-- hero
+        
+        
+        
+    moteur <-- jeu
+
+
+note right of perso
+Heros implémente la classe abstraite Personnage
+end note
+
+
